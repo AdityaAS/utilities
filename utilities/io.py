@@ -56,7 +56,7 @@ def read_lines(file_path: str) -> list:
     Returns:
         list: List of line contents of the file
     """
-    with open(file, 'r') as f:
+    with open(file_path, 'r') as f:
         lines = f.readlines()
 
     return lines
@@ -69,7 +69,7 @@ def write_lines(lines: list, file_path: str) -> None:
         lines (list): List that needs to be written to the file
         file_path (str): Path of destination file
     """
-    with open(file, 'w') as f:
+    with open(file_path, 'w') as f:
         for line in lines:
             f.write(str(line) + '\n')
 
