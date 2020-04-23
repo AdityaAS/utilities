@@ -59,6 +59,8 @@ def read_lines(file_path: str) -> list:
     with open(file_path, 'r') as f:
         lines = f.readlines()
 
+    lines = [line.rstrip() for line in lines]
+
     return lines
 
 
