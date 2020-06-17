@@ -22,7 +22,7 @@ def load_npz(dest_path: str) -> np.ndarray:
 
 
 def read_json(json_file: str) -> dict:
-    """Read json file
+    """Reads json file
 
     Args:
         json_file (str): Path of source json file
@@ -35,6 +35,19 @@ def read_json(json_file: str) -> dict:
 
     return data
 
+
+def load_pkl(src_path, t='rb', encoding='ASCII'):
+    with open(src_path, t) as f:
+        pkl = pickle.load(f, encoding=encoding)
+
+    return pkl
+
+
+def write_pkl(pkl, dest_path, t='wb', protocol=None):
+    with open(dest_path, 'wb') as f:
+        pickle.dump(pkl, f, protocol=protocol)
+
+
 def write_json(dictionary: dict, file_path: str) -> None:
     """Write dictionary to json file
 
@@ -44,7 +57,6 @@ def write_json(dictionary: dict, file_path: str) -> None:
     """
     with open(file_path, 'w') as fp:
         json.dump(dictionary, fp)
-
 
 
 def read_lines(file_path: str) -> list:
