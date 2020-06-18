@@ -6,6 +6,7 @@ import matplotlib
 matplotlib.use('Agg')
 from sklearn.metrics import classification_report
 
+
 def gt_vs_pred(targets, predictions):
     sorted_ind = np.argsort(targets)
     targets = targets[sorted_ind]
@@ -42,5 +43,4 @@ def compute_classification_report(targets, predictions, target_names):
 
     columns = [''] + df_classification_report.columns[:].tolist()
     return data, columns
-
 
