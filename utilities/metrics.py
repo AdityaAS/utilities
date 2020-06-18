@@ -178,6 +178,7 @@ def compute_fgbg_f1(
     """
     predictions = predictions.reshape(-1, 1)
     targets = targets.reshape(-1, 1)
+    targets = targets.reshape(-1, 1)[:, 0]
 
     f1 = mt.f1_score(targets, predictions)
     precision = mt.precision_score(targets, predictions)
@@ -248,7 +249,6 @@ def multi_class_matrices(
     targets: np.ndarray, predictions: np.ndarray, average: str = "binary"
 ) -> (float, float, float, float):
     """Segmentation precision, recall, F1 and accuracy
-
         Args:
             targets (np.ndarray): Target segmentation masks
             predictions (np.ndarray): Predicted segmentation masks
