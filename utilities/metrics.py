@@ -1,12 +1,15 @@
 """One stop shop for implementation of all metrics
 """
 import sys
-import torch
+
 import numpy as np
 import sklearn.metrics as mt
+import torch
+
 
 def squared_error(targets: np.ndarray, predictions: np.ndarray) -> np.ndarray:
-    return (targets - predictions) **2
+    return (targets - predictions) ** 2
+
 
 def align_by_pelvis(
     joints: np.ndarray, get_pelvis: bool = False
@@ -250,7 +253,6 @@ def multi_class_matrices(
     targets: np.ndarray, predictions: np.ndarray, average: str = "binary"
 ) -> (float, float, float, float):
     """Segmentation precision, recall, F1 and accuracy
-
         Args:
             targets (np.ndarray): Target segmentation masks
             predictions (np.ndarray): Predicted segmentation masks
