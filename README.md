@@ -3,7 +3,10 @@
 
 This repository contains utilities typically used in the development of deep learning algorithms (in PyTorch)
 
-The project currently has limited functionality but will increase over time. Currently has data loading, logging, metrics and visualization related utilities
+Use the repository to avoid writing boilerplate code for data processing/logging/metrics and visualization (at the moment)
+
+The project currently has limited functionality but will increase over time
+
 ```
 .
 ├── __init__.py
