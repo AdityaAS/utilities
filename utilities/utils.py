@@ -17,7 +17,7 @@ def fig_to_numpy(fig) -> np.ndarray:
     return image
 
 
-def make_one_hot(self, position: int, l: int) -> torch.Tensor:
+def make_one_hot(position: int, length: int) -> torch.Tensor:
     """
     Makes a 1D one hot vector of length l with a one at index position, rest all zeroes
 

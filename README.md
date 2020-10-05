@@ -30,6 +30,22 @@ The project currently has limited functionality but will increase over time
 * The repository is pip installable and can be imported as `import utilities` once installed
 * Run `bash install.sh` to install the package
 
+## Examples
+
+- To set seeds for your run (for reproducibility)
+
+```
+from utilities.random import seed_everything
+
+seed_everything(seed=4321)
+```
+
+- To convert class labels to one hot encoding
+
+```
+from utilities.utils import make_one_hot
+one_hot = make_one_hot(position=2, length=5) # Output will be the tensor [0 0 1 0 0]
+```
 
 ---
 Authors:
