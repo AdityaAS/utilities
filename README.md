@@ -1,7 +1,33 @@
 # utilities
+---
 
-## INSTALLATION
+This repository contains utilities typically used in the development of deep learning algorithms (in PyTorch)
 
-* Run `python setup.py sdist bdist_wheel` to create the .whl file
-* To install the .whl via pip use `pip install dist/<name_of_wheel.whl>`
-* To check installation run `python -c 'import utilities'`
+The project currently has limited functionality but will increase over time. Currently has data loading, logging, metrics and visualization related utilities
+```
+.
+├── __init__.py
+├── install.sh
+├── LICENSE
+├── README.md
+├── setup.py
+└── utilities
+    ├── factory.py
+    ├── image.py
+    ├── __init__.py
+    ├── io.py
+    ├── logger.py
+    ├── metrics.py
+    ├── random.py
+    ├── utils.py
+    └── viz.py
+```
+
+## Setup & Installation
+* The repository is pip installable and can be imported as `import utilities` once installed
+* Run `bash install.sh` to install the package
+
+
+---
+Authors:
+[Aditya Sarma](https://adityaas.github.io/)
