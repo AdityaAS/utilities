@@ -1,9 +1,14 @@
 """One stop shop for implementation of all metrics
 """
 import sys
-import torch
+
 import numpy as np
 import sklearn.metrics as mt
+import torch
+
+
+def squared_error(targets: np.ndarray, predictions: np.ndarray) -> np.ndarray:
+    return (targets - predictions) ** 2
 
 
 def align_by_pelvis(
@@ -178,7 +183,6 @@ def compute_fgbg_f1(
     """
     predictions = predictions.reshape(-1, 1)
     targets = targets.reshape(-1, 1)
-    targets = targets.reshape(-1, 1)[:, 0]
 
     f1 = mt.f1_score(targets, predictions)
     precision = mt.precision_score(targets, predictions)
