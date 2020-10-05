@@ -46,5 +46,5 @@ one_hot = make_one_hot(position=2, length=5) # Output will be the tensor [0 0 1 
 ```
 
 ---
-## Authors:
+## Contributors:
 - [Aditya Sarma](https://adityaas.github.io/)
