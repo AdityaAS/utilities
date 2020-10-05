@@ -1,31 +1,18 @@
 import cv2
 import numpy as np
 
-def read_and_pad(image_path: str) -> (np.ndarray, tuple, tuple):
-    """Read and image and pad it to make it a square image
-
-    Args:
-        image_path (str): Absolute path of image file
-
-    Returns:
-        np.ndarray, tuple, tuple: padded image, original shape, new shape
-    """
-    image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
-    original_shape = image.shape
-    image = pad_image(image)
-    new_shape = image.shape
-    return image, original_shape, new_shape
 
 def pad_image(image: np.ndarray) -> np.ndarray:
     """Pad image to make it a square image
 
     Args:
-        image (np.ndarray): Absolute path of image file
+        image (np.ndarray): numpy array
 
     Returns:
         np.ndarray: padded image
     """
     ht, wt = image.shape[:2]
+    original_shape = (ht, wt)
     final_shape = max(ht,wt)
     small_shape = min(ht,wt)
 
@@ -41,7 +28,7 @@ def pad_image(image: np.ndarray) -> np.ndarray:
         padding = np.array(padding)
 
     padded_image = np.pad(image, padding, mode='constant')
-    return padded_image
+    return padded_image, original_shape, padded_image.shape[:2]
 
 def pad_points(points_2d: np.ndarray, image_shape: tuple) -> np.ndarray:
     """Pad keypoints of the image
