@@ -2,6 +2,7 @@ import os
 import logging
 from os.path import exists
 
+
 def set_logger(log_path: str = None) -> None:
     """Set the logger to log info in terminal and file `log_path`.
 
@@ -31,6 +32,8 @@ def set_logger(log_path: str = None) -> None:
         file_handler.setFormatter(logging.Formatter('%(asctime)s | %(name)s | %(levelname)s | %(filename)s:%(funcName)s:%(lineno)d | %(message)s'))
         file_handler.setLevel(logging.INFO)
         logger.addHandler(file_handler)
+
+
 
 if __name__ == '__main__':
     log_path = './logger_test.log'

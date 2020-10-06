@@ -27,10 +27,13 @@ def transform_data(data, function):
 def compute_classification_report(targets, predictions, target_names):
     class_report = classification_report(targets, predictions, target_names=target_names, output_dict=True)
 
+    del class_report['accuracy']
+    del class_report['weighted avg']
+
     df_classification_report = pd.DataFrame.from_dict(class_report, orient='index')
     df_classification_report['support-pct'] = df_classification_report['support'] / df_classification_report.loc['macro avg', 'support']
 
-    keys = ['accuracy', 'weighted avg', 'precision', 'recall', 'f1-score', 'support-pct']
+    keys = ['precision', 'recall', 'f1-score', 'support-pct']
     functions = [lambda x: round(x, 2), lambda x: round(x, 2), lambda x: round(x, 2), lambda x: round(100 * x, 1)]
 
     for key, function in zip(keys, functions):
@@ -42,5 +45,4 @@ def compute_classification_report(targets, predictions, target_names):
 
     columns = [''] + df_classification_report.columns[:].tolist()
     return data, columns
-
 
